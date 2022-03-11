@@ -1,5 +1,7 @@
 const filenames = {
-
+    'notes/api/v1/rest': [
+        'notes-resource'
+    ]
 }
 
 function toFilesList(imports, folder){
