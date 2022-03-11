@@ -23,7 +23,7 @@ A estrutura de pastas está apresentada abaixo, com alguns comentários
 |           +-- service /* services que serão invocados pelos controllers */
 |           +-- test /* testes automatizados */
 |           +-- validator /* validators */
-|       +-- tarefas /* projeto neokohm */
+|       +-- tarefas /* projeto tarefas */
 +-- tmp
 +-- index.js
 ```
