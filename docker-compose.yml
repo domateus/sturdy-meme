@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  database:
+    image: postgres
+    container_name: tiktoken-postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=tiktoken
+      - POSTGRES_PASSWORD=tiktoken
+      - POSTGRES_DB=tiktoken
+    volumes:
+      - pgdata:/data/postgres
+  # app:
+  #   build: .
+  #   container_name: tiktoken
+  #   ports:
+  #     - 8080:8080
+  #   volumes:
+  #     - .:/usr/app
+  #   links:
+  #     - database
+  #   depends_on:
+  #     - database
+volumes:
+  pgdata:
+    driver: local
