@@ -1,15 +1,26 @@
-import {Entity, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn, Column} from "typeorm"
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from "typeorm";
+import Event from "../../Event/entities/Event";
 
 @Entity("ticket")
 export default class Ticket {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn("uuid")
   id: string;
-  
+
   @Column()
   owner: string;
 
   @Column()
   status: string;
+
+  @ManyToOne(() => Event, (event) => event.tickets)
+  event: Event;
 
   @CreateDateColumn()
   created_at: Date;
