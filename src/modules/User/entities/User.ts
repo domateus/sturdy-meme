@@ -3,9 +3,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import CommercialInfo from "./CommercialInfo";
 
 @Entity("users")
 export default class User {
@@ -17,6 +19,9 @@ export default class User {
 
   @Column()
   email: string;
+
+  @OneToOne(() => CommercialInfo, (commercialInfo) => commercialInfo.user)
+  commercialInfo: CommercialInfo;
 
   @Column()
   @Exclude()

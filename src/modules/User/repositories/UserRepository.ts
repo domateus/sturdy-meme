@@ -1,6 +1,6 @@
 import Datasource from "@database/index";
+import * as d from "@User/dtos";
 import { Repository } from "typeorm";
-import FormCreateUser from "../dto/FormCreateUser";
 import User from "../entities/User";
 import IUserRepository from "./IUserRepository";
 
@@ -11,10 +11,11 @@ export default class UserRepository implements IUserRepository {
     this.repository = Datasource.getRepository(User);
   }
 
-  createUser(user: FormCreateUser) {
+  createUser(user: d.CreateUser) {
     return this.repository.save(user);
   }
   async findUserById(id: string) {
+    console.log("id", id);
     return await this.repository.findOne({ where: { id } });
   }
   public async findByEmail(email: string): Promise<User | null> {

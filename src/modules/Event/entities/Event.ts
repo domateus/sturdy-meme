@@ -3,40 +3,45 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
 import Ticket from "../../Ticket/entities/Ticket";
+import User from "../../User/entities/User";
 
 @Entity("events")
 export default class Event {
   @PrimaryGeneratedColumn("uuid")
-  id: string;
+  id!: string;
 
   @Column()
-  title: string;
+  title!: string;
 
   @Column()
-  description: string;
+  description!: string;
 
   @Column()
-  date: Date;
+  date!: Date;
 
   @Column()
-  location: string;
+  location!: string;
 
   @Column()
-  logo: string;
+  logo?: string;
+
+  @ManyToOne(() => User)
+  promoter!: User;
 
   @OneToMany(() => Ticket, (ticket) => ticket.event)
-  tickets: Ticket[];
+  tickets!: Ticket[];
 
   @CreateDateColumn()
-  created_at: Date;
+  created_at!: Date;
 
   @UpdateDateColumn()
-  updated_at: Date;
+  updated_at!: Date;
 
   @Expose({ name: "logo_url" })
   getLogoUrl(): string | null {
