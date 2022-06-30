@@ -22,7 +22,7 @@ export class createTicket1654210328838 implements MigrationInterface {
             type: "varchar",
           },
           {
-            name: "event_id",
+            name: "eventId",
             type: "uuid",
           },
           {
@@ -38,8 +38,8 @@ export class createTicket1654210328838 implements MigrationInterface {
         ],
         foreignKeys: [
           {
-            name: "event_id",
-            columnNames: ["event_id"],
+            name: "TicketEvent",
+            columnNames: ["eventId"],
             referencedTableName: "events",
             referencedColumnNames: ["id"],
             onDelete: "SET NULL",

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strict": true,
     "baseUrl": "./src",
     "rootDir": "./src",
     "paths": {
@@ -17,8 +18,10 @@
     "outDir": "dist",
     "allowJs": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false
   },
   "lib": ["es2015"],
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
 }

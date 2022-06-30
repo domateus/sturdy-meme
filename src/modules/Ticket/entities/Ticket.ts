@@ -11,20 +11,29 @@ import Event from "../../Event/entities/Event";
 @Entity("ticket")
 export default class Ticket {
   @PrimaryGeneratedColumn("uuid")
-  id: string;
+  id!: string;
 
   @Column()
-  owner: string;
+  owner!: string;
 
   @Column()
-  status: string;
+  status!: string;
+
+  @Column()
+  type!: string;
+
+  @Column()
+  number!: string;
+
+  @Column()
+  price!: number;
 
   @ManyToOne(() => Event, (event) => event.tickets)
-  event: Event;
+  event!: Event;
 
   @CreateDateColumn()
-  created_at: Date;
+  created_at!: Date;
 
   @UpdateDateColumn()
-  updated_at: Date;
+  updated_at!: Date;
 }
